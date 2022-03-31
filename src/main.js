@@ -11,3 +11,16 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+Vue.filter('toUpperCase',(value)=>{
+  return value.toUpperCase();
+})
+Vue.filter('formatQuantity',(value)=>{
+  return value + " cái";
+})
+Vue.filter('formatMoney',(value)=>{
+  return "$" + value;
+})
+Vue.filter('formatDiscount',(value)=>{
+  return value + "%";
+})
+

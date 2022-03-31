@@ -1,18 +1,54 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <img :src="image" :alt="imageAlt" :class="product">
+    <br>
+    <h3>{{product | toUpperCase}}</h3>
+    <a :href="productLink">Linkk</a>
+    <div>
+      <p>{{quantity | formatQuantity}}</p>
+      <p>{{price | formatMoney}}</p>
+      <p>{{discount | formatDiscount}}</p>
+      <p>Current price: {{priceAfDiscount(number) | formatMoney}}</p>
+      <p>Current des: {{changeDesText}}</p>
+    </div>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      image: 'https://cdn.vjshop.vn/hightech/may-choi-game/ps5/sony-ps-5-1.jpg',
+      imageAlt: 'ps5 alt',
+      product: 'ps5',
+      productLink: 'https://bachtungps.com.vn/may-sony-playstation-5-ps5-1',
+      quantity: 10,
+      price: 10000,
+      discount: 0.2,
+      inStock: true,
+      classObject: {
+        'bg-green': true,
+        'bg-blue': false
+      }
+    }
+  },
+  methods:{
+    priceAfDiscount(number){
+      number = this.price - (this.price*this.discount);
+      return number;
+    }
+  },
+  computed:{
+    changeDesText(){
+      this.product = "ps555";
+      return this.product;
+    }
   }
+
 }
 </script>
 
@@ -24,5 +60,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+img{
+  width: 500px;
+  height: 500px;
+}
+a{
+  text-decoration: none;
+  color: red;
+}
+.text-red{
+  color: red;
 }
 </style>
