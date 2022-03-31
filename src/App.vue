@@ -1,16 +1,6 @@
 <template>
   <div id="app">
-    <img :src="image" :alt="imageAlt" :class="product">
-    <br>
-    <h3>{{product | toUpperCase}}</h3>
-    <a :href="productLink">Linkk</a>
-    <div>
-      <p>{{quantity | formatQuantity}}</p>
-      <p>{{price | formatMoney}}</p>
-      <p>{{discount | formatDiscount}}</p>
-      <p>Current price: {{priceAfDiscount(number) | formatMoney}}</p>
-      <p>Current des: {{changeDesText}}</p>
-    </div>
+    
     
   </div>
 </template>
